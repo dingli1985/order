@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhd.mybatis.dept.HdDeptDao">
+	<resultMap type="com.hhd.mybatis.dept.HdDept" id="hdDept">
+	    <result column="dept_id" property="hdDeptId" />
+		<result column="dept_code" property="hdDeptCode" />
+		<result column="dept_name" property="hdDeptName"/>
+		<result column="dept_foreign_name" property="hdDeptForeignName"/>
+		<result column="dept_status" property="hdDeptStatus"/>
+		<result column="update_time" property="hdUpdateTime" jdbcType="DATE" />
+		<result column="create_time" property="hdCreateTime" jdbcType="DATE" />
+		<result column="create_opid" property="hdCreateOpid" jdbcType="INTEGER" />
+		<result column="update_opid" property="hdUpdateOpid" jdbcType="INTEGER" />
+		<result column="notes" property="hdNotes" jdbcType="VARCHAR" />
+		<result column="foreign_notes" property="hdForeignNotes" jdbcType="VARCHAR" />
+		<result column="node_type" property="nodeType" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<insert id="insertDept" parameterType="com.hhd.mybatis.dept.HdDept">
+		<selectKey keyProperty="hdDeptId" resultType="int">
+			select
+			scope_identity() as hdDeptId
+		</selectKey>
+			insert into hd_dept
+			(
+			dept_code,
+			dept_name,
+			dept_foreign_name,
+			dept_status,
+			create_time,
+			update_time,
+			create_opid,
+			update_opid,
+			notes,
+			foreign_notes,
+			node_type,
+			corp_id
+			)
+			values(
+			#{hdDeptCode},
+			#{hdDeptName},
+			#{hdDeptForeignName},
+			#{hdDeptStatus},
+			#{hdCreateTime},
+			#{hdUpdateTime},
+			#{hdCreateOpid},
+			#{hdUpdateOpid},
+			#{hdNotes},
+			#{hdForeignNotes},
+			#{nodeType},
+			#{hdCorpId}
+			)
+
+	</insert>
+</mapper>

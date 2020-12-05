@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhd.mybatis.dict.HdDictionaryDao">
+	<resultMap type="com.hhd.mybatis.dict.HdDictionary" id="hdDictionary">
+		<result column="dict_id" property="dictId" />
+		<result column="type_code" property="typeCode"/>
+		<result column="type_name" property="typeName"/>
+		<result column="type_note" property="typeNote"/>
+		<result column="type_foreign_note" property="typeForeignNote"/>
+		<result column="create_time" property="createTime"/>
+		<result column="update_time" property="updateTime"/>
+		<result column="create_op_d" property="createOpId"/>
+		<result column="update_op_id" property="updateOpId"/>
+		<result column="node_type" property="nodeType"/>
+		<result column="node_status" property="nodeStatus"/>
+	</resultMap>
+	   
+	<select id="queryByCode" resultMap="hdDictionary">
+		select * from hd_dictionary where type_code=#{typeCode}
+	</select>
+</mapper>

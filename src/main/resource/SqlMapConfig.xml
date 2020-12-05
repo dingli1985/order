@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="logImpl" value="LOG4J" />
+	</settings>
+	<mappers>
+		<mapper resource="com/hhd/mybatis/operator/HdOperator.xml" />
+		<mapper resource="com/hhd/mybatis/operator/HdOperatorRole.xml" />
+		<mapper resource="com/hhd/mybatis/permission/HdPermission.xml"/>
+		<mapper resource="com/hhd/mybatis/permission/HdRole.xml"/>
+		<mapper resource="com/hhd/mybatis/unit/HdUnit.xml"/>
+		<mapper resource="com/hhd/mybatis/dept/HdDept.xml"/>
+		<mapper resource="com/hhd/mybatis/dict/HdDictionaryNote.xml"/>
+		<mapper resource="com/hhd/mybatis/dict/HdDictionary.xml"/>
+		<mapper resource="com/hhd/mybatis/cargo/HdCargoOwner.xml"/>
+	</mappers>
+</configuration>

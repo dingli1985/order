@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhd.mybatis.material.HdMaterialDao">
+	<resultMap type="com.hhd.mybatis.permission.HdMaterial" id="hdMaterial">
+		<result column="material_id" property="materialId" />
+		<result column="material_code" property="materialCode" />
+		<result column="material_name" property="materialName" />
+		<result column="material_foreign_name" property="materialForeignName" />
+		<result column="material_status" property="materialStatus" />
+		<result column="notes" property="notes" />
+		<result column="specifications" property="specifications" />
+		<result column="reg_cert_no" property="regCertNo" />
+		<result column="manu_id" property="manuId" />
+		<result column="cert_no_effect_time" property="certNoEffectTime" />
+		<result column="cert_no_effect_time_to" property="certNoEffectTimeTo" />
+		<result column="bar_code" property="barCode" />
+		<result column="big_case_unit" property="bigCaseUnit" />
+		<result column="case_unit" property="caseUnit" />
+		<result column="unit" property="unit" />
+		<result column="big_case_ratio" property="bigCaseRatio" />
+		<result column="case_ratio" property="caseRatio" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="create_op_id" property="createOpId" />
+		<result column="update_op_id" property="updateOpId" />
+		<result column="node_type" property="nodeType" />
+	</resultMap>
+</mapper>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhd.mybatis.operator.HdOperatorDao">
+	<resultMap type="com.hhd.mybatis.operator.HdOperator" id="HdOperator">
+		<result column="operator_id" property="operatorId" jdbcType="INTEGER" />
+		<result column="operator_code" property="operatorCode" jdbcType="VARCHAR" />
+		<result column="operator_name" property="operatorName" jdbcType="VARCHAR" />
+		<result column="operator_status" property="operatorStatus" jdbcType="VARCHAR" />
+		<result column="operator_pwd" property="operatorPwd" jdbcType="VARCHAR" />
+		<result column="create_op_id" property="createOpId" jdbcType="INTEGER" />
+		<result column="create_time" property="createTime" jdbcType="DATE" />
+		<result column="update_time" property="updateTime" jdbcType="DATE" />
+		<result column="update_op_id" property="updateOpId" jdbcType="INTEGER" />
+		<result column="notes" property="notes" jdbcType="VARCHAR" />
+		<result column="foreign_notes" property="foreignNotes" jdbcType="VARCHAR" />
+		<result column="op_group_id" property="opGroupId" jdbcType="INTEGER" />
+		<result column="cargo_owner_id" property="cargoOwnerId" jdbcType="INTEGER" />
+
+
+	</resultMap>
+
+	<select id="queryOperatorByAccAndPwd" resultMap="HdOperator">
+		select * from
+		hd_operator where operator_name=#{userName} and
+		operator_pwd=#{userPwd}
+	</select>
+	<select id="queryOperatorByPage" resultMap="HdOperator">
+		select top
+		${pageSize} * from hd_operator
+		where operator_id not in (select top
+		${startNo} user_id from
+		operator)
+	</select>
+
+	<select id="queryByOperatorId" resultMap="HdOperator">
+		select * hd_operator
+		where operator_id=#{operatorId}
+	</select>
+	<insert id="insertOperator" parameterType="com.hhd.mybatis.operator.HdOperator">
+		<selectKey keyProperty="operatorId" resultType="int">
+			select
+			scope_identity() as operatorId
+		</selectKey>
+			insert into hd_operator
+			(
+			operator_code,
+			operator_name,
+			operator_status,
+			operator_pwd,
+			create_time,
+			update_time,
+			create_op_id,
+			update_op_id,
+			notes,
+			foreign_notes,
+			op_group_id,
+			cargo_owner_id
+			)
+			values(
+			#{operatorCode},
+			#{operatorName},
+			#{operatorStatus},
+			#{operatorPwd},
+			#{createTime},
+			#{updateTime},
+			#{createOpId},
+			#{updateOpId},
+			#{notes},
+			#{foreignNotes},
+			#{opGroupId},
+			#{cargoOwnerId}
+			)
+
+	</insert>
+
+</mapper>

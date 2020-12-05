@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhd.mybatis.unit.HdUnitDao">
+	<resultMap type="com.hhd.mybatis.unit.HdUnit" id="hdUnit">
+		<result column="hd_unit_code" property="hdUnitCode" />
+		<result column="hd_unit_name" property="hdUnitName"/>
+		<result column="hd_unit_eng_name" property="hdUnitEngName"/>
+		<result column="hd_unti_status" property="hdUnitStatus"/>
+		<result column="hd_notes" property="hdNodes"/>
+	</resultMap>
+</mapper>

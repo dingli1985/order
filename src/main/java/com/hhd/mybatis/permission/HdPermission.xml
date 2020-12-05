@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhd.mybatis.permission.HdPermissionDao">
+	<resultMap type="com.hhd.mybatis.permission.HdPermission" id="HdPermission">
+		<result column="hd_permission_id" property="hdPermissionId" />
+		<result column="hd_permission_name" property="hdPermissionName" />
+		<result column="hd_permission_code" property="hdPermissionCode" />
+		<result column="hd_permission_status" property="hdPermissionStatus" />
+		<result column="hd_permission_type" property="hdPermissionType" />
+		<result column="hd_permission_url" property="hdPermissionUrl" />
+		<result column="hd_parent_id" property="hdParentId" />
+	</resultMap>
+	<select id="queryPermissionByUserId" resultMap="HdPermission">
+		select a.* from hd_permission a,hd_role_permission b ,hd_operator_role c
+		where a.hd_permission_id=b.hd_permission_id and c.hd_role_id=b.hd_role_id
+		and c.hd_operator_id=#{hdOperatorId}
+	</select>
+	
+	<select id="queryPermissionByRoleId" resultMap="HdPermission" >
+		   select a.* from hd_permission a,hd_role_permission b 
+		 where a.hd_permission_id=b.hd_permission_id
+		 and b.hd_role_id=#{roleId}
+	</select>
+</mapper>

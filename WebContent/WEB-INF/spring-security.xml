@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:sec="http://www.springframework.org/schema/security"
+             xsi:schemaLocation="
+      http://www.springframework.org/schema/security
+      http://www.springframework.org/schema/security/spring-security-3.2.xsd
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+    <sec:http auto-config="true">
+        <!--配置保护资源 -->
+        <sec:intercept-url pattern="/" access="ROLE_user,ROLE_admin"/>
+        <sec:form-login login-page="/jsp/login.jsp"
+                        authentication-failure-url="/jsp/loginFail.jsp" default-target-url="/jsp/index.jsp"/>
+    </sec:http>
+    <!--配置用户 -->
+    <sec:authentication-manager>
+        <sec:authentication-provider>
+            <sec:user-service>
+                <sec:user name="admin" password="1qaz2wsx" authorities="ROLE_user,ROLE_admin"/>
+                <sec:user name="tom" password="tom" authorities="ROLE_user"/>
+                <sec:user name="mike" password="mike" authorities="ROLE_mike"/>
+            </sec:user-service>
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+</beans:beans>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhd.mybatis.cargo.HdCargoOwnerDao">
+	<resultMap type="com.hhd.mybatis.cargo.HdCargoOwner" id="hdCorgoOwner">
+		<result column="cargo_id" property="cargoId" />
+		<result column="cargo_code" property="cargoCode" />
+		<result column="cargo_name" property="cargoName" />
+		<result column="cargo_foreign_name" property="cargoForeignName" />
+		<result column="node_type" property="nodeType" />
+		<result column="corp_id" property="corpId" />
+		<result column="cargo_status" property="cargoStatus" />
+		<result column="create_op_id" property="createOpId" />
+		<result column="create_time" property="createTime" />
+		<result column="update_op_id" property="updateOpId" />
+		<result column="update_time" property="updateTime" />
+		<result column="notes" property="notes" />
+		<result column="foreign_notes" property="foreignNotes" />
+		<result column="area_id" property="areaId" />
+		<result column="cargo_address" property="cargoAddress" />
+		<result column="zip_code" property="zipCode" />
+		<result column="contacts" property="contacts" />
+		<result column="contact_number" property="contactNumber" />
+		<result column="cargo_email" property="cargoEmail" />
+		<result column="name_of_loading" property="nameOfLoading" />
+		<result column="loading_address" property="loadingAddress" />
+		<result column="operating_period" property="operatingPeriod"  />
+		<result column="medical_appa_effect" property="medicalAppaEffect" />
+		<result column="business_license" property="businessLicense" />
+		<result column="business_license_to" property="businessLicenseTo" />
+		<result column="dept_id" property="deptId" />
+		<result column="org_effect_time" property="orgEffectTime" />
+		<result column="org_effect_time_to" property="orgEffectTimeTo" />
+		<result column="op_license_medical_appa" property="opLicenseMedicalAppa" />
+		<result column="tax_reg_no" property="taxRegNo" />
+	</resultMap>
+
+	
+</mapper>

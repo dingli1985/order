@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhd.mybatis.dict.HdDictionaryNoteDao">
+	<resultMap type="com.hhd.mybatis.dict.HdDictionaryNote" id="hdDictionaryNote">
+		<result column="dict_id" property="dictId" />
+		<result column="type_code" property="typeCode"/>
+		<result column="type_note" property="typeNote"/>
+		<result column="create_time" property="createTime"/>
+		<result column="update_time" property="updateTime"/>
+		<result column="create_op_d" property="createOpId"/>
+		<result column="update_op_id" property="updateOpId"/>
+	</resultMap>
+</mapper>
